@@ -1,0 +1,7 @@
+logging:
+  level: INFO
+  loggers:
+    zone.gryphon: ${var!'DEBUG'}
+
+geminos:
+  rootFolder: '/home/galen/Downloads/thumbnails/34'
