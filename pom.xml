@@ -70,6 +70,11 @@
             <groupId>zone.dragon.dropwizard</groupId>
             <artifactId>dropwizard-hk2</artifactId>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

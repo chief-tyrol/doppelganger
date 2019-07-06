@@ -3,5 +3,10 @@ logging:
   loggers:
     zone.gryphon: ${var!'DEBUG'}
 
+  appenders:
+    - type:        console
+      logFormat:   '[%date{"yyyy-MM-dd'' ''HH:mm:ss,SSS XXX",CST}]\(%t\) %p - %logger{0} - %m%n%rEx'
+
 geminos:
-  rootFolder: '/home/galen/Downloads/thumbnails/34'
+#  rootFolder: '/home/galen/Downloads/thumbnails/34'
+  rootFolder: '/media/data/Data/Downloads/mirflickr'

@@ -20,4 +20,8 @@ public class GeminosConfiguration extends Configuration {
     @NotNull
     private GeminosImageReadConfiguration geminos;
 
+    @Valid
+    @Min(1)
+    private int threadCount = Runtime.getRuntime().availableProcessors() * 2;
+
 }

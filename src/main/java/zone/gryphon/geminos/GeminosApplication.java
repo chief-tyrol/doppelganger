@@ -6,6 +6,11 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import zone.dragon.dropwizard.HK2Bundle;
+import zone.gryphon.geminos.configuration.GeminosResources;
+import zone.gryphon.geminos.health.MemoryUsedMonitor;
+
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class GeminosApplication extends Application<GeminosConfiguration> {
 
@@ -31,15 +36,25 @@ public class GeminosApplication extends Application<GeminosConfiguration> {
     @Override
     public void run(final GeminosConfiguration configuration, final Environment environment) {
 
+        environment.jersey().register(MemoryUsedMonitor.class);
+
         environment.jersey().register(MainRunner.class);
 
         environment.jersey().register(new AbstractBinder() {
             @Override
             protected void configure() {
+                ThreadPoolExecutor executor = (ThreadPoolExecutor)
+                        environment.lifecycle().executorService("geminosProcessingThread-%d")
+                        .workQueue(new LinkedBlockingDeque<>())
+                        .minThreads(configuration.getThreadCount())
+                        .maxThreads(configuration.getThreadCount())
+                        .build();
+
+                bind(new GeminosResources(executor));
                 bind(configuration.getGeminos());
             }
         });
         // TODO: implement application
     }
 
-}
+    }
