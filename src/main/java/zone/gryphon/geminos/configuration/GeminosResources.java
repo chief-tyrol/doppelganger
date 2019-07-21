@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * @author galen
+ * @author tyrol
  */
 @Data
 @Builder

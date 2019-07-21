@@ -7,7 +7,6 @@ import com.google.common.base.Throwables;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import sun.misc.Signal;
 import zone.dragon.dropwizard.lifecycle.InjectableManaged;
 import zone.gryphon.geminos.api.ImageDistance;
 import zone.gryphon.geminos.api.ProcessedImage;
@@ -24,7 +23,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -32,10 +35,10 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 /**
- * @author galen
+ * @author tyrol
  */
 @Slf4j
-@RequiredArgsConstructor(onConstructor = @__({@Inject}))
+@RequiredArgsConstructor(onConstructor_={@Inject})
 public class MainRunner implements InjectableManaged {
 
     @NonNull
@@ -202,7 +205,7 @@ public class MainRunner implements InjectableManaged {
         log.info("Done! took {} seconds", stopwatch.elapsed(TimeUnit.SECONDS));
 
 
-        sun.misc.Signal.raise(new Signal("INT"));
+        System.exit(1);
     }
 
     private final AtomicReference<Instant> lastPrintTime = new AtomicReference<>(Instant.EPOCH);

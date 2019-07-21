@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * @author galen
+ * @author tyrol
  */
 @Slf4j
 public class MemoryUsedMonitor implements InjectableManaged {

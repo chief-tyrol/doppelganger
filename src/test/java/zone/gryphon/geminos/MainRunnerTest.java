@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import static org.junit.Assert.*;
 
 /**
- * @author galen
+ * @author tyrol
  */
 @Slf4j
 public class MainRunnerTest {

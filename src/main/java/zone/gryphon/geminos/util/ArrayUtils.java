@@ -4,7 +4,7 @@ import com.google.common.base.Preconditions;
 import lombok.NonNull;
 
 /**
- * @author galen
+ * @author tyrol
  */
 public class ArrayUtils {
 

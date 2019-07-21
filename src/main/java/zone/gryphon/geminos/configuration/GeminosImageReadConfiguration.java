@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.io.File;
 
 /**
- * @author galen
+ * @author tyrol
  */
 @Data
 public class GeminosImageReadConfiguration {
