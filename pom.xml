@@ -6,7 +6,7 @@
     <parent>
         <groupId>zone.gryphon</groupId>
         <artifactId>base-pom</artifactId>
-        <version>0.11.9-84ff5b5</version>
+        <version>0.11.35-a225641</version>
     </parent>
 
     <groupId>zone.gryphon.doppelganger</groupId>
@@ -18,7 +18,6 @@
 
     <properties>
         <dropwizard.version>1.1.0</dropwizard.version>
-        <bom.version>${project.parent.version}</bom.version>
         <mainClass>zone.gryphon.geminos.GeminosApplication</mainClass>
     </properties>
 
@@ -28,7 +27,7 @@
             <dependency>
                 <groupId>zone.gryphon</groupId>
                 <artifactId>base-bom</artifactId>
-                <version>${bom.version}</version>
+                <version>${core-poms.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
